@@ -7,17 +7,20 @@
   </head>
   <body>
     <script src="lib/angular/angular.js"></script>
-    <script src="lib/angular-route/angular-route.js"></script>
+    <script src="lib/angular-route/angular-ui-router.min.js"></script>
     <script src="app/auth/auth.js"></script>
     <script src="app/input/input.js"></script>
     <script src="app/services/services.js"></script>
     <script src="app/app.js"></script>
     <h1>Commutify</h1>
-    <div ng-view>
-    <!-- LINK/BUTTON TO SCHEDULE MANAGEMENT -->
-      <a href='#/schedule'>Manage your scheduled rides</a>
-    <!-- LINK/BUTTON TO ONE-OFF RIDE CALL -->
-      <a href='#/input'>Book a one-off ride</a>
+    <div ng-view ui-view>
+    
+      <!-- LINK/BUTTON TO SCHEDULE MANAGEMENT -->
+      <a ui-sref='/schedule'>Manage your scheduled rides</a>
+      
+      <!-- LINK/BUTTON TO ONE-OFF RIDE CALL --> 
+      <a ui-sref='/input'>Book a one-off ride</a>
+      
     </div>
   </body>
 </html>

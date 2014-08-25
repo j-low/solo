@@ -1,6 +1,8 @@
 angular.module('commutify.auth', [])
 
 .controller('Auth', function($scope, $http, Auth) {
+  $scope.user = {};
+
   $scope.signin = function() {
   	Auth.signin($scope.user)
   	.then(function(token) {
