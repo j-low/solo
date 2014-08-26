@@ -1,11 +1,11 @@
 angular.module('commutify.ride', [])
 
-.controller('RideController', function($scope, $http, Input) {
+.controller('RideController', function($scope, $http, $firebase, Ride) {
 	$scope.currentRide = {};
   $scope.rides = [];
   
   $scope.newRide = function(ride) {
-  	Input.post(ride)
+  	Ride.post(ride)
   	.then(function() {
   		//TODO: DEFINE BEHAVIOR TO NOTIFY VIEW OF SUCCESSFUL POST
   	})

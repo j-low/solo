@@ -2,7 +2,8 @@ angular.module('commutify', [
   'commutify.services',
   'commutify.auth',
   'commutify.ride',
-  'ui-router'
+  'ui-router',
+  'firebase'
 ])
 
 .config(function($stateProvider, $urlRouteProvider) {

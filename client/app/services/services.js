@@ -1,6 +1,6 @@
 angular.module('commutify.services', [])
 
-.factory('Ride', function($scope, $http) {
+.factory('Ride', function($scope, $http, $firebase) {
     var getRide = function(ride) {
     	return $http({
     	  method: 'GET',
@@ -21,13 +21,21 @@ angular.module('commutify.services', [])
 			url: //TODO: URL FOR POSTING TO USER.RIDE,
 			data: ride
 		});
+
+    // usersRef.child(ride.user).set({
+    // 	date: ride.date,
+    // 	time: ride.time,
+    // 	beginLocation: ride.beginLocation,
+    // 	endLocation: ride.endLocation  
+    // });
 	};
 
 	var deleteRide = function(ride) {
-		return $http({
-			method: 'DELETE',
-			url: //TODO: URL FOR DELETE USER.RIDE[ride]
-		})l
+		// return $http({
+		// 	method: 'DELETE',
+		// 	url: //TODO: URL FOR DELETE USER.RIDE[ride]
+		// })
+    $scope.db.$remove({});
 	};
 
 	return {
@@ -37,7 +45,8 @@ angular.module('commutify.services', [])
 		deleteRide: deleteRide
 	};
 })
-.factory('Auth', function($http, $location, $window) {
+
+.factory('Auth', function($http, $location, $window, $firebase) {
 	var signin = function(user) {
 		return $http({
 			method: 'POST',

@@ -8,6 +8,9 @@
   <body>
     <script src="lib/angular/angular.js"></script>
     <script src="lib/angular-route/angular-ui-router.min.js"></script>
+    <script src='https://cdn.firebase.com/js/client/1.0.15/firebase.js'></script>
+    <script src='https://cdn.firebase.com/libs/angularfire/0.8.0/angularfire.min.js'></script>
+    <script src="../database/database.js"></script>
     <script src="app/auth/auth.js"></script>
     <script src="app/ride/ride.js"></script>
     <script src="app/services/services.js"></script>
@@ -15,12 +18,13 @@
     <h1>Commutify</h1>
     <div ng-view ui-view>
     
-      <!-- LINK/BUTTON TO SCHEDULE MANAGEMENT -->
-      <a ui-sref='/schedule'>Manage your scheduled rides</a>
-      
-      <!-- LINK/BUTTON TO ONE-OFF RIDE CALL --> 
-      <a ui-sref='/input'>Book a one-off ride</a>
-      
     </div>
+      
+    <!-- LINK/BUTTON TO SCHEDULE MANAGEMENT -->
+    <a ui-sref='#/schedule'>Manage your scheduled rides</a>
+      
+    <!-- LINK/BUTTON TO ONE-OFF RIDE CALL --> 
+    <a ui-sref='/input'>Book a one-off ride</a>
+      
   </body>
 </html>
