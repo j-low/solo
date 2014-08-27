@@ -1,16 +1,21 @@
 <div>
 	<h2>Sign in<h2>
-	<form>
+	<form ng-submit="signin()">
 	  
-	  <!-- ENTER USERNAME -->
-	  <input/>
-	  <!-- <div><small>error container</small></div> -->
-	  
-	  <!-- ENTER PASSWORD -->
-	  <input/>
-	  <!-- <div><small>error container</small></div> -->
-	  
-	  <button>Sign in</button>
+	  <div>
+	    <!-- ENTER USERNAME -->
+		  <input class="input-field" type="text" name="username" ng-model="currentUser.username" placeholder="username" ng-minLength=6 ng-maxLength=12 required/>
+		  <!-- <div><small>error container</small></div> -->
+	  </div>
+
+	  <div>
+	    <!-- ENTER PASSWORD -->
+		  <input class="input-field" type="password"  name="password" ng-model"currentUser.password" placeholder="password" required/>
+		  <!-- <div><small>error container</small></div> -->
+	  </div>
+	  <input type="submit" value="Sign in"/>
 	</form>	
-	<a class="nav-link" ui-sref="/signup">Don't have an account? Sign up.</a>
+	<p>Don't have an account?
+	  <a ui-sref="signup"><input type="button" value="Sign up"/></a>
+	</p>
 </div>

@@ -1,18 +1,25 @@
 <div>
 	<h2>Enter your ride<h2>
-	<form>
+	<form ng-model="currentRide" ng-submit="newRide()">
 	  
-	  <!-- ENTER DATE-->
-	  <input/>
-	  <!-- <div><small>error container</small></div> -->
+	  <div>
+	    <!-- ENTER DATE-->
+		  <input class="input-field" type="date" name="date" ng-model="currentRide.date" placeholder="Enter date"/>
+		  <!-- <div><small>error container</small></div> -->
+	  </div>
 	  
-	  <!-- ENTER TIME -->
-	  <input/>
-	  <!-- <div><small>error container</small></div> -->
+	  <div>
+		  <!-- ENTER TIME -->
+		  <input class="input-field" type="time" name="time" ng-model="currentRide.time" placeholder="Enter time"/>
+		  <!-- <div><small>error container</small></div> -->
+	  </div>
 	  
-	  <!-- LOCATION SELECTOR MOCKUP (MAP API) -->
-	  
-	  <button>Schedule ride</button>
-	  <button>Cancel</button>
+	  <div>
+		  <!-- LOCATION SELECTOR MOCKUP (MAP API) -->
+		  <img class="location-select" src="../../lib/map_api_mockup.png" alt="map mockup"></img>
+	  </div>
+
+	  <input type="submit" value="Book ride"/>
 	</form>	
+	  <a ui-sref="home"><input type="button" value="Cancel"/></a>
 </div>

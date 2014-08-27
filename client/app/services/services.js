@@ -1,41 +1,42 @@
 angular.module('commutify.services', [])
 
+//hey I'm here from a foreign land 
+
+.factory('Database', function($firebase) {
+	db = $firebase(new Firebase('https://commutify.firebaseio.com/'));
+
+  return db;
+})
+
 .factory('Ride', function($scope, $http, $firebase) {
     var getRide = function(ride) {
-    	return $http({
-    	  method: 'GET',
-    	  url: //TODO: URL FOR USER.RIDE[ride]
-    	});
+    	// return $http({
+    	//   method: 'GET',
+    	//   url: //TODO: URL FOR USER.RIDE[ride]
+    	// });
+      // db.
     };
   
 	var getAll = function() {
-  	return $http({
-  		method: 'GET',
-  		url: //TODO: URL FOR USER.RIDE
-  	});
+  	// return $http({
+  	// 	method: 'GET',
+  	// 	url: //TODO: URL FOR USER.RIDE
+  	// });
 	};
 
 	var saveRide = function(ride) {
-		return $http({
-			method: 'POST',
-			url: //TODO: URL FOR POSTING TO USER.RIDE,
-			data: ride
-		});
-
-    // usersRef.child(ride.user).set({
-    // 	date: ride.date,
-    // 	time: ride.time,
-    // 	beginLocation: ride.beginLocation,
-    // 	endLocation: ride.endLocation  
-    // });
+    var ref = db.child($user.username);
+    ref.child('rides').$add({
+		    	date: ride.date,
+		    	time: ride.time,
+		    	beginLocation: ride.beginLocation,
+		    	endLocation: ride.endLocation  
+        });
 	};
 
 	var deleteRide = function(ride) {
-		// return $http({
-		// 	method: 'DELETE',
-		// 	url: //TODO: URL FOR DELETE USER.RIDE[ride]
-		// })
-    $scope.db.$remove({});
+    var ref = db.child(ride.user + '/' + ride.id);
+    ref.remove();
 	};
 
 	return {
@@ -48,19 +49,20 @@ angular.module('commutify.services', [])
 
 .factory('Auth', function($http, $location, $window, $firebase) {
 	var signin = function(user) {
-		return $http({
-			method: 'POST',
-			url: //TODO: URL FOR POSTING USER AUTH,
-			data: user
-		});
+		// return $http({
+		// 	method: 'POST',
+		// 	url: //TODO: URL FOR POSTING USER AUTH,
+		// 	data: user
+		// });
 	};
 
 	var signup = function(user) {
-		return $http({
-			method: 'POST',
-			url: //TODO: URL FOR POSTING NEW USER,
-			data: user
-		});
+		// return $http({
+		// 	method: 'POST',
+		// 	url: //TODO: URL FOR POSTING NEW USER,
+		// 	data: user
+		// });
+    db.push({});
 	};
 
 	var signout = function() {
@@ -69,16 +71,15 @@ angular.module('commutify.services', [])
 	};
 
 	var isAuth= function() {
-		return $http({
-			method: 'GET',
-			url: //TODO: URL FOR VERIFYING USER AUTH
-		});
+		// return $http({
+		// 	method: 'GET',
+		// 	url: //TODO: URL FOR VERIFYING USER AUTH
+		// });
 	};
 
 	return {
 		signin: signin, 
 		signup: signup, 
 		signout: signout,
-		deleteRide: deleteRide
 	};
 });

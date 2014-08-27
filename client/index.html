@@ -1,30 +1,23 @@
 <!DOCTYPE html>
 <html ng-app='commutify'>
   <head>
+    <title>Traversify</title>
     <meta charset="utf-8" />
-    <title>Commutify</title>
-    <link rel="stylesheet" type="text/css" href="styles/style.css" />
-  </head>
-  <body>
+    <link rel="stylesheet" type="text/css" href="styles/styles.css" />
+    <link rel="stylesheet" type="text/css" href="styles/styles.css" />
+    <link rel="stylesheet" type="text/css" href="styles/grayscale.css" />
+    
     <script src="lib/angular/angular.js"></script>
     <script src="lib/angular-route/angular-ui-router.min.js"></script>
     <script src='https://cdn.firebase.com/js/client/1.0.15/firebase.js'></script>
     <script src='https://cdn.firebase.com/libs/angularfire/0.8.0/angularfire.min.js'></script>
-    <script src="../database/database.js"></script>
     <script src="app/auth/auth.js"></script>
     <script src="app/ride/ride.js"></script>
     <script src="app/services/services.js"></script>
     <script src="app/app.js"></script>
-    <h1>Commutify</h1>
-    <div ng-view ui-view>
-    
-    </div>
-      
-    <!-- LINK/BUTTON TO SCHEDULE MANAGEMENT -->
-    <a ui-sref='#/schedule'>Manage your scheduled rides</a>
-      
-    <!-- LINK/BUTTON TO ONE-OFF RIDE CALL --> 
-    <a ui-sref='/input'>Book a one-off ride</a>
-      
+  </head>
+  <body>
+    <h1>Traversify</h1>
+    <div ui-view></div>
   </body>
 </html>

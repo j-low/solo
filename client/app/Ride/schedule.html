@@ -1,0 +1,23 @@
+<div>
+  <!-- TODO: TABLE LAYOUT FOR SCHEDULED RIDES -->
+  <table>
+  <thead>
+    <tr class="row">
+      <th>Date</th>
+      <th>Time</th>
+      <th>Origin</th>
+      <th>Destination</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="row" ng-repeat="ride in rides">
+        <td>{{ride.date}}</td>
+        <td>{{ride.time}}</td>
+        <td>{{ride.beginLocation}}</td>
+        <td>{{ride.endLocation}}</td>
+    </tr>
+  </tbody>
+</table>
+  <a ui-sref="ride"><input type="button" value="Book new ride"/></a>
+  <a ui-sref="home"><input type="button" value="Done"/></a>
+</div>

@@ -1,16 +1,21 @@
-<div>
+<div ui-view>
 	<h2>Sign up<h2>
-	<form>
-	  
-	  <!-- ENTER USERNAME -->
-	  <input/>
-	  <!-- <div><small>error container</small></div> -->
-	  
-	  <!-- ENTER PASSWORD -->
-	  <input/>
-	  <!-- <div><small>error container</small></div> -->
-	  
-	  <button>Sign up</button>
+	<form ng-submit="signup()">
+	 
+	 <div>
+	    <!-- ENTER USERNAME -->
+		  <input class="input-field" type="text" name="username" ng-model="currentUser.username" placeholder="username" ng-minLength=6 ng-maxLength=12 required/>
+		  <!-- <div><small>error container</small></div> -->
+	  </div>
+
+	  <div>
+	    <!-- ENTER PASSWORD -->
+		  <input class="input-field" type="password" name="password" ng-model"currentUser.password" placeholder="password" required/>
+		  <!-- <div><small>error container</small></div> -->
+	  </div>
+      <input type="submit" value="Sign up"/>
 	</form>
-	<a class="nav-link" ui-sref="/signin">Already have an account? Sign in.</a>	
+	<p>Already have an account?
+		<a ui-sref="signin"><input type="button" value="Sign in"/></a>
+	</p>
 </div>

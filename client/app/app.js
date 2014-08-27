@@ -2,64 +2,65 @@ angular.module('commutify', [
   'commutify.services',
   'commutify.auth',
   'commutify.ride',
-  'ui-router',
+  'ui.router',
   'firebase'
 ])
 
-.config(function($stateProvider, $urlRouteProvider) {
-  $urlRouteProvider.otherwise('/signin');
+.config(function($stateProvider, $urlRouterProvider) {
+  $urlRouterProvider.otherwise('/index');
 
   $stateProvider
   	.state('home', {
   		url: '/index',
-  		templateUrl: 'index.html'
+  		templateUrl: 'app/home.html'
   	})
   	.state('signin', {
       url: '/signin',
-      templateUrl: '/auth/signin.html'
+      templateUrl: 'app/auth/signin.html',
+      controller: 'AuthController'
   	})
   	.state('signup', {
   	  url: '/signup',
-  	  templateUrl: '/auth/signup.html'
+  	  templateUrl: 'app/auth/signup.html',
+      controller: 'AuthController'
   	})
   	.state('ride', {
   	  url: '/ride',
-  	  templateUrl: '/ride/ride.html'
+  	  templateUrl: 'app/Ride/ride.html',
+      controller: 'RideController'
   	})
-  	.state('ride.list', {
+  	.state('schedule', {
       url: '/schedule',
-      templateUrl: '/ride/ride.list.html',
-      controller: function($scope) {
-      	$scope.rides = [];  //ARRAY OF USER RIDES
-      }
+      templateUrl: 'app/Ride/schedule.html',
+      controller: 'RideController'
   	})
 })
 
-.factory('AttachTokens', function($window) {
-	//TODO: LOGIC FOR TOKEN
-	var attach = {
-    request: function (object) {
-      var jwt = $window.localStorage.getItem('com.shortly');
-      if (jwt) {
-        object.headers['x-access-token'] = jwt;
-      }
-      object.headers['Allow-Control-Allow-Origin'] = '*';
-      return object;
-    }
-  };
-  return attach;
-})
+// .factory('AttachTokens', function($window) {
+// 	//TODO: LOGIC FOR TOKEN
+// 	var attach = {
+//     request: function (object) {
+//       var jwt = $window.localStorage.getItem('com.shortly');
+//       if (jwt) {
+//         object.headers['x-access-token'] = jwt;
+//       }
+//       object.headers['Allow-Control-Allow-Origin'] = '*';
+//       return object;
+//     }
+//   };
+//   return attach;
+// })
 
-.run(function($rootscope, $location, Auth) {
-	//TODO: LOGIC FOR USER TOKEN VALIDATION ON NAVIGATION
-  $rootScope.$on('$routeChangeStart', function (evt, next, current) {
-    if (next.$$route.controller && next.$$route.controller !== 'AuthController') {
-      Auth.isAuth()
-        .then(function () {
-        })
-        .catch(function () {
-          $location.path('/signin');
-        });
-    }
-  });
-});
+// .run(function($rootScope, $location, Auth) {
+// 	//TODO: LOGIC FOR USER TOKEN VALIDATION ON NAVIGATION
+//   $rootScope.$on('$routeChangeStart', function (evt, next, current) {
+//     if (next.$$route.controller && next.$$route.controller !== 'AuthController') {
+//       Auth.isAuth()
+//         .then(function () {
+//         })
+//         .catch(function () {
+//           $location.path('/signin');
+//         });
+//     }
+//   });
+// });

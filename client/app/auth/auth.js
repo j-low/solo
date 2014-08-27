@@ -1,12 +1,12 @@
 angular.module('commutify.auth', [])
 
-.controller('AuthController', function($scope, $http, Auth) {
+.controller('AuthController', function($scope, $http, $state, Auth, Database) {
   $scope.user = {};
 
   $scope.signin = function() {
   	Auth.signin($scope.user)
   	.then(function(token) {
-      $window.localStorage.setItem('com.commutify', token);
+      // $window.localStorage.setItem('com.commutify', token);
       $location('/index');
   	})
   	.catch(function(error) {
@@ -17,7 +17,7 @@ angular.module('commutify.auth', [])
   $scope.signup = function() {
   	Auth.signup($scope.user)
   	.then(function(token) {
-  		$window.localStorage.setItem('com.commutify', token);
+  		// $window.localStorage.setItem('com.commutify', token);
   		$location('/index');
   	})
   	.catch(function(error) {
